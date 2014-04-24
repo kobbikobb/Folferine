@@ -1,0 +1,63 @@
+﻿@model Folferine.Website.Models.GameDetailsViewModel
+
+@{
+    ViewBag.Title = "Game";
+}
+
+<div class="well">
+        
+    <h4 class="well-title">@ViewBag.Title</h4>
+
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => Model.CreatedDate)</dt>
+        <dd>@Html.DisplayFor(model => Model.CreatedDate)</dd>
+
+        <dt>@Html.DisplayNameFor(model => Model.CourseName)</dt>
+        <dd>@Html.DisplayFor(model => Model.CourseName)</dd>
+
+        <dt>@Html.DisplayNameFor(model => Model.CourseLocation)</dt>
+        <dd>@Html.DisplayFor(model => Model.CourseLocation)</dd>
+
+        <dt>@Html.DisplayNameFor(model => Model.CourseHoleCount)</dt>
+        <dd>@Html.DisplayFor(model => Model.CourseHoleCount)</dd>
+    </dl>
+
+</div>
+    
+<div class="panel panel-default">
+    <div class="panel-heading"><h4>Rounds</h4></div>
+    <table class="table">
+        <tr>
+            <th>Round</th>
+            @foreach (var item in Model.Scorecards)
+            {
+                <th>@Html.DisplayFor(modelItem => item.PlayerUserName)</th>
+            }
+        </tr>
+        @for (int i = 1; i <= Model.CourseHoleCount; i++)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => i)</td>
+
+                @foreach (var item in Model.Scorecards)
+                {
+                    <td>@Html.DisplayFor(modelItem => item.Rounds.Single(x => x.Number == i).Score)</td>
+                }
+            </tr>
+        }
+        <tr>
+            <td></td>
+            @foreach (var item in Model.Scorecards)
+            {
+                <td>@Html.DisplayFor(modelItem => item.SumScore)</td>
+            }
+        </tr>
+    </table>
+
+</div>
+
+<p>
+    @Html.ActionLink("Continue", "Continue", new { id = Model.Id}) |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.Id}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

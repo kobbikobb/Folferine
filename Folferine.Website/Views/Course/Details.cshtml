@@ -1,0 +1,39 @@
+﻿@model Folferine.Website.Models.CourseViewModel
+
+@{
+    ViewBag.Title = "Course details";
+}
+
+<div class="well">
+    <h4 class="well-title">Course</h4>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoleCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoleCount)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

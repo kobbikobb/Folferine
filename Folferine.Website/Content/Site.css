@@ -1,0 +1,109 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* Base styles (regardless of theme) */
+.bs-callout {
+    margin: 20px 0;
+    padding: 15px 30px 15px 15px;
+    border-left: 5px solid #eee;
+}
+
+.bs-callout h4 {
+    margin-top: 0;
+}
+
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
+
+.bs-callout code,
+.bs-callout .highlight {
+    background-color: #fff;
+}
+
+/* Themes for different contexts */
+.bs-callout-danger {
+    background-color: #fcf2f2;
+    border-color: #dFb5b4;
+}
+
+.bs-callout-warning {
+    background-color: #fefbed;
+    border-color: #f1e7bc;
+}
+
+.bs-callout-info {
+    background-color: #f0f7fd;
+    border-color: #d0e3f0;
+}
+
+.bs-callout-danger h4,
+.bs-callout-danger a.alert-link {
+    color: #B94A48;
+}
+
+.bs-callout-warning h4,
+.bs-callout-warning a.alert-link {
+    color: #C09853;
+}
+
+.bs-callout-info h4,
+.bs-callout-info a.alert-link {
+    color: #3A87AD;
+}
+
+.bs-callout a.alert-link {
+    font-weight: bold;
+}
+
+.well-title {
+    border-bottom: 1px solid #e7e7e7;
+    margin: -5px -19px 0.8333em;
+    padding: 0 19px 0.7222em;
+}
+
+.well-footer {
+    border-top: 1px solid #e7e7e7;
+    padding-top: 0.8333em;
+}
