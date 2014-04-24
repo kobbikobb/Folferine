@@ -19,6 +19,9 @@ namespace Folferine.Website
                 c.CreateMap<Scorecard, ScorecardViewModel>();
                 c.CreateMap<Round, RoundViewModel>();
                 c.CreateMap<Course, CourseViewModel>();
+                c.CreateMap<CourseViewModel, Course>()
+                     .ForMember(dest => dest.Games, opt => opt.Ignore());
+
             });
 
             Mapper.AssertConfigurationIsValid();
