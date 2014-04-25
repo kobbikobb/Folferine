@@ -12,9 +12,9 @@
         <tr>
             <th>@Html.DisplayNameFor(model => model.CreatedDate)</th>
             <th>@Html.DisplayNameFor(model => model.CourseName)</th>
-            <th>@Html.DisplayNameFor(model => model.CourseLocation)</th>
             <th>Rounds</th>
-            <th>Players</th>
+            <th class="hidden-xs">Players</th>
+            <th></th>
         </tr>
 
         @foreach (var item in Model)
@@ -22,12 +22,11 @@
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.CreatedDate)</td>
                 <td>@Html.DisplayFor(modelItem => item.CourseName)</td>
-                <td>@Html.DisplayFor(modelItem => item.CourseLocation)</td>
                 <td>@Html.DisplayFor(modelItem => item.LastRound) / @Html.DisplayFor(modelItem => item.CourseHoleCount)</td>
-                <td>@Html.DisplayFor(modelItem => item.ScorecardsCount)</td>
+                <td class="hidden-xs">@Html.DisplayFor(modelItem => item.ScorecardsCount)</td>
                 <td>
                     @Html.ActionLink("Continue", "Continue", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) | 
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                 </td>
             </tr>

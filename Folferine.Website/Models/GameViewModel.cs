@@ -16,9 +16,6 @@ namespace Folferine.Website.Models
         [DisplayName("Course")]
         public string CourseName { get; set; }
 
-        [DisplayName("Location")]
-        public string CourseLocation { get; set; }
-
         [DisplayName("Hole count")]
         public int CourseHoleCount { get; set; }
 
