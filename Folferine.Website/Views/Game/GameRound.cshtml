@@ -1,4 +1,5 @@
-﻿@model Folferine.Website.Models.GameRoundViewModel
+﻿@using System.Drawing
+@model Folferine.Website.Models.GameRoundViewModel
 
 @{
     ViewBag.Title = "Round " + Model.Number;
@@ -20,7 +21,14 @@
                 @Html.HiddenFor(modelItem => Model.PlayerScores[i].UserName)
                 @Html.Label(Model.PlayerScores[i].UserName, new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.TextBoxFor(modelItem => Model.PlayerScores[i].Score, new { @class = "form-control" })
+                    <div class="btn-group" data-toggle="buttons">
+                        @for (int x = 1; x < 11; x++)
+                        {
+                            <label class="btn btn-default @(Model.PlayerScores[i].Score == x ? "active" : "")">
+                                @Html.RadioButtonFor(model => Model.PlayerScores[i].Score, x)@(x)
+                            </label>
+                        }
+                    </div>
                     @Html.ValidationMessageFor(modelItem => Model.PlayerScores[i].Score)
                 </div>
             </div>
@@ -35,5 +43,4 @@
     </div>
 }
     
-
 @Html.ActionLink("Back to details", "Details", new { id = @Model.Id }) 
