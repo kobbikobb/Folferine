@@ -18,11 +18,17 @@
         @for (int i = 0; i < Model.PlayerScores.Count; i++)
         {
             <div class="form-group">
+                
                 @Html.HiddenFor(modelItem => Model.PlayerScores[i].UserName)
                 @Html.Label(Model.PlayerScores[i].UserName, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+                
+                <div class="col-md-1">
+                    @Html.TextBoxFor(modelItem => Model.PlayerScores[i].Score, new { @class = "form-control" })
+                </div>
+      
+                <div class="col-md-9">
                     <div class="btn-group" data-toggle="buttons">
-                        @for (int x = 1; x < 11; x++)
+                        @for (int x = 1; x < 8; x++)
                         {
                             <label class="btn btn-default @(Model.PlayerScores[i].Score == x ? "active" : "")">
                                 @Html.RadioButtonFor(model => Model.PlayerScores[i].Score, x)@(x)
@@ -31,6 +37,7 @@
                     </div>
                     @Html.ValidationMessageFor(modelItem => Model.PlayerScores[i].Score)
                 </div>
+
             </div>
         }
 
@@ -44,3 +51,16 @@
 }
     
 @Html.ActionLink("Back to details", "Details", new { id = @Model.Id }) 
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(function() {
+            $("label.btn").click(function() {
+                var val = $(this).find("input").val();
+                $(this).closest(".form-group").find("input:text").val(val);
+            });
+
+        });
+    </script>
+}
